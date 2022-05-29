@@ -1,0 +1,102 @@
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+  <style>
+  input {
+	width: 50%;
+	margin-bottom: 10px;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition:  .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+    /* CSS code for button */
+    body {
+      background-image: url('static/img/Titanic.jpeg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Show Indian AI Hospital banner-->
+
+
+
+ <div class="login">
+
+    <!-- Get input for predict the cancer -->
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>ENTER THE VALUES FOR  PREDICTION </h1>
+
+    	<input type="number" name="Pclass" placeholder="Pclass" required="required" />
+        <input type="number" name="Sex" placeholder="Sex" required="required" />
+		<input type="number" name="Age" placeholder="Age" required="required" />
+		<input type="number" name="SibSp" placeholder="SibSp" required="required" />
+        <input type="number" name="Parch" placeholder="Parch" required="required" />
+        <input type="number" name="Fare" placeholder="Fare" required="required" />
+
+
+		<br>
+
+
+
+        <br>
+
+        <!-- Show button -->
+        <div class="button_cont" align="center"><a class="button_css" target="_blank" output="nofollow noopener">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict</strong></button></a>
+        </div>
+
+    </form>
+    </center>
+
+   <!-- Show predicted output using ML model -->
+   <div>
+       <center>
+   <h1>{{ prediction_text }}</h1>
+       </center>
+   </div>
+
+ </div>
+
+</body>
+</html>
